@@ -36,21 +36,37 @@ h1,h2,h3,h4,h5,h6{
   height:515px;
   
 }
-.topNavBar .topNavBar-inner>nav>ul>li{
+.topNavBar nav>ul>li{
   float: left;
+  position: relative;
+
 }
 .topNavBar{
-  padding-top: 7px;
-  padding-bottom: 7px;
+  padding-top: 15px;
+  padding-bottom: 1px;
   padding-right: 0px;
   padding-left: 0px;
   /* 左右PADDING必须为，否则就内容的WIDTH为100%，就会超过BODY */
   position: fixed;
   /* 相对于屏幕固定 */
   width: 100%;
+  color: #b7b7b7;
+  transition: all 0.5s;
+}
+.topNavBar.sticky{
+  background: white;
+  /* box-shadow: h-shadow v-shadow blur spread color inset; */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  /* 决定谁在最上层 */
+  z-index: 1;
+  color: #3d4451;
+  height:50px;
 }
 .topNavBar-inner{
   padding: 0 16px;
+  
+  
+
 
 
 }
@@ -59,25 +75,57 @@ h1,h2,h3,h4,h5,h6{
   }
 .topNavBar .topNavBar-inner>nav>ul>li>a{
   font-size: 12px;
-  text-decoration: none;
-  color: #b7b7b7;
+  /* text-decoration: none; */
+  color: inherit;
   font-weight: bold;
   border: transparent 3px solid;
   padding-bottom:5px;
-  padding-top: 5px;
+  padding-top: 10px;
   display: block;
   margin-right: 15px;
   margin-left: 15px;
+  position: relative;
   
 }
 .topNavBar .topNavBar-inner>nav{
-  padding-top: 3px;
+  padding-top: 1px;
  
+}
+/* 伪类就是假的DIV */
+.topNavBar nav > ul>li.active>a::after{
+  content:'';
+  display: flex;
+  width:100%;
+  top:100%;
+  height: 2px;
+  left:0;
+  position: absolute;
+  animation: slide 0.5s ;
+  background: red;
+}
+/* .topNavBar .topNavBar-inner>nav>ul>li>a:hover{
+  border-bottom: tomato 3px solid;
+} */
+@keyframes slide{
+  0%{
+    width:0%;
+  }
+  100%{
+    width:100%;
+  } 
 
+}
+@keyframes submenuSlide{
+  0%{
+    margin-left: 10%;
+  }
+  100%{
+    margin-left: 30%;
+  } 
 }
 .topNavBar .topNavBar-inner .logo{
   padding-top:14px;
-  padding-bottom: 17px;
+  padding-bottom: 23px;
 }
 .topNavBar .topNavBar-inner .logo .rs{
   color:#E6686A;
@@ -92,9 +140,30 @@ h1,h2,h3,h4,h5,h6{
   font-size: 24px;
  
   }
-.topNavBar .topNavBar-inner>nav>ul>li>a:hover{
-  border-bottom: tomato 3px solid;
+.topNavBar  .submenu{
+  display: none;
+  position: absolute;
+  top:100%;
+  background: white;
+  color:#3d4451;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  
 }
+/* 不是绝对定位，是文档流元素 */
+/* 绝对定位不受父元素影响 */
+.topNavBar li.active> .submenu{
+  display: block;
+  position: absolute;
+  top:100%;
+  padding-left:0px;
+  animation: submenuSlide 1s;
+}
+
+/* 不准换行 */
+.topNavBar  .submenu>li{
+  white-space: nowrap;
+  padding: 10px;
+} 
 .banner{
   background-image: url(./rs-cover-2-2-1-1.jpg);
   background-position: center, center;
@@ -190,6 +259,7 @@ h1,h2,h3,h4,h5,h6{
   vertical-align: top;
   /* 保证上下空间一致 */
 }
+
 
 .media >a:hover{
   border:solid transparent 1px;

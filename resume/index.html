@@ -3,8 +3,9 @@
 <html>
 
 <head>
-  <title>huangxiao233的个人简历</title>
+  <title>黄笑的个人简历</title>
   <link rel="stylesheet" href="./a.css">
+  <link rel="stylesheet" href="./loading.css">
   <SCript src="//at.alicdn.com/t/font_592834_jcg38trf2x8t1emi.js"></SCript>
   <style type="text/css">
     .icon {
@@ -13,41 +14,70 @@
        fill: currentColor;
        overflow: hidden;
     }
+    .sitewelcome{
+      display: none;
+      position: fixed;
+      top:0;left:0;width:100%;height:100%;
+      z-index: 1;
+      background: #888;
+      /* display: flex; */
+      justify-content: center;
+      align-items: center;
+
+
+    }
+    .sitewelcome.active{
+      display:flex;
+    }
 </style>
 </head>
 
 <body>
+  <div id= "sitewelcome" class="sitewelcome active">
+    <div class="loading"></div>
+  </div>
     
   
-      <div class="topNavBar">
+      <div id="topNavBar" class="topNavBar">
           <div class="topNavBar-inner clearfix">
             <!-- 在套一层新的盒子 -->
             <a class="logo" href="#" alt="logo" style="float: left;">
-            <span class="rs">RS</span><span class="card">card</span>
+              <span class="rs">RS</span>
+              <span class="card">card</span>
             <!-- span 之间若是有回车，就会多出一个空格 -->
             </a>
-            <nav style="float: right;">
+            <nav class="menu" style="float: right;">
               <ul class="clearfix">
                 <li>
-                  <a href="#">关于</a>
+                  <a  href="#About">关于</a>
                 </li>
                 <li>
-                  <a href="#">技能</a>
+                  <a href="#Skills">技能</a>
                 </li>
                 <li>
-                  <a href="#">作品</a>
+                  <a  href="#Works">作品</a>
+                   <ul class="submenu">
+                     <li>作品1</li>
+                     <li>作品2</li>
+                     <li>作品3</li>
+                   </ul>
                 </li>
                 <li>
-                  <a href="#">博客</a>
+                  <a  href="#Blog">博客</a>
+                   <ul class="submenu">
+                    <li>博客1</li>
+                    <li>博客2</li>
+                    <li>博客3</li>
+                   </ul>
                 </li>
                 <li>
-                  <a href="#">日历</a>
+                  <a href="#Date">日历</a>
                 </li>
                 <li>
-                  <a href="#">联系方式</a>
+                  <a href="#Connect">联系方式</a>
                 </li>
                 <li>
-                  <a href="#">其他</a>
+                  <a href="#Others">其他</a>
                 </li>
               </ul>
             </nav>
@@ -59,7 +89,7 @@
       </div>
       <main style="margin-top:-400px;">
           <div class="Usercard">
-            <div class="pictureAndText clearfix">
+            <div class="pictureAndText clearfix" id="About">
               <div class="picture" style="float:left;">
                 <img src="./startuper-hover-1-299x347.jpg" alt="头像">
               </div>
@@ -75,7 +105,7 @@
                     <dt>所在城市</dt>
                     <dd>北京</dd>
                     <dt>邮箱</dt>
-                    <dd>1694623679@qq.com</dd>
+                    <dd>huangxiao233@gmail.com</dd>
                     <dt>手机</dt>
                     <dd>18811395195</dd>
                   </dl>
@@ -116,12 +146,12 @@
       </p>
 
         <p class="self-intro">
-          黄笑， 资深前端工程师，资深前端讲师，现在在 北京科技大学 。
+          黄笑， 资深前端工程师，资深前端讲师，现在在 北京科技大学 学习前端。
           <br> 技能：前端开发，Rails 开发，Node.js 开发
         </p>
 
       </main>
-      <section class="skills">
+      <section class="skills" id ="Skills">
         <h2>技能</h2>
         <ol class="clearfix">
           <li>
@@ -167,7 +197,7 @@
           </li>
         </ol>
       </section>
-      <section class="portfolio">
+      <section class="portfolio" id="Works">
         <h2>作品集</h2>
         <nav>
           <ol class="clearfix">
@@ -204,4 +234,95 @@
         </div>
     </section>
   </body>
+  <script> setTimeout(function()
+          {sitewelcome.classList.remove("active")},1000)
+          // 用户滑动传播窗口触发函数
+          window.onscroll = function(x){
+
+            if (window.scrollY > 0) {//获取窗口滚动高度
+                topNavBar.classList.add("sticky")
+              } else {
+                topNavBar.classList.remove("sticky")
+              }
+            }
+            // 这样写，移出的时候没有办法选择作品
+            //接受一个选择器，返回选择器的所有元素
+    let liTags = document.querySelectorAll('nav.menu >ul > li')
+    // console.log(liTags[0])
+    for (let i=0;i<liTags.length;i++){
+         liTags[i].onmouseenter = function(x){//鼠标进入触发函数
+          
+            x.currentTarget.classList.add('active')
+          //  找弟弟
+        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+        // 所以要用两次
+          // console.log(a.nextSibling.nextSibling)
+    
+          //  哪怕就一个也要写上[0],因为是elements,它返回的是数组
+          //  所以要取出这个元素
+            
+        
+        //  nodetype = 3 说明他是一个文本，我们要找节点弟弟
+          // TagName永远返回的是大写
+          // 我们不知道A和ul之间有什么，有回车，搞不好还有span 
+        //      while(brother.tagName !== 'UL' ){
+        // //  while(brother.nodeType === 3 ){
+        //       brother = brother.nextSibling
+        //    }
+            //  brother.classList.add('active')
+            //  console.log( brother.classList)
+         }
+          // 拿开就没有了
+           liTags[i].onmouseleave = function(x){
+          //  console.log('mouseenter')
+            x.currentTarget.classList.remove('active')
+          //  找弟弟
+        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+        // 所以要用两次
+          // console.log(a.nextSibling.nextSibling)
+    
+           
+
+            // while (brother.tagName !== 'UL') {
+            //   brother = brother.nextSibling
+            // }
+              // brother.classList.remove('active')
+          }
+    
+    }
+   let aTags = document.querySelectorAll('nav.menu >ul >li >a')
+  //  console.log(aTags)
+   for(let i=0;i<aTags.length;i++){
+     aTags[i].onclick = function(x){
+      //  阻止默认动作，a标签会跳转，会打开新页面
+       x.preventDefault()
+      //  获取用户点的标签
+       let a = x.currentTarget
+      //  这样返回的是浏览器处理过的，会带IP地址
+      //  console.log(a.href)
+      // 获取A标签对应的href
+      let href = a.getAttribute('href')
+      // 通过href找到对应的元素 
+       console.log(a.getAttribute('href'))
+      //  找到这个节点
+      // 没有ALL，返回的不是数组了，只有一个
+      // 方法返回文档中匹配指定 CSS 选择器的一个元素。
+       let element = document.querySelector(href)
+      //  获取元素距离页面顶部（不是浏览器）的像素数，就是你滚动多少能看到
+       let top = element.offsetTop
+       //top = element.getBoundTop.这个是离浏览器的距离
+       console.log(top)
+       window.scrollTo(0,top - 60)//左右划，第一个参数
+       console.log(element)
+        
+      //  是什么HREF就是什么
+
+     }
+   }
+
+
+          
+         
+
+  </script>
 </html>
