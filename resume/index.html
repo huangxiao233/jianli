@@ -1,23 +1,30 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>黄笑的个人简历</title>
-  <link rel="stylesheet" href="./a.css">
+  
   <link rel="stylesheet" href="./loading.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.css">
+  <link rel="stylesheet" href="./a.css">
   <SCript src="//at.alicdn.com/t/font_592834_jcg38trf2x8t1emi.js"></SCript>
+
   <style type="text/css">
     .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
     }
-    .sitewelcome{
+
+    .sitewelcome {
       display: none;
       position: fixed;
-      top:0;left:0;width:100%;height:100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 1;
       background: #888;
       /* display: flex; */
@@ -26,303 +33,361 @@
 
 
     }
-    .sitewelcome.active{
-      display:flex;
+
+    .sitewelcome.active {
+      display: flex;
     }
-</style>
+
+    .swiper-container {
+      width: 668px;
+      height: 501px;
+    }
+    .swiper-button-prev{
+      border:red solid 1px;
+      top:1650px;
+      left:387px;
+      
+    }
+    .swiper-button-next{
+      border:red solid 1px;
+      top:1650px;
+      left:1100px;
+    }
+
+    .swiper-slide {
+      background: white;
+    }
+  </style>
 </head>
 
 <body>
-  <div id= "sitewelcome" class="sitewelcome active">
+  <div id="sitewelcome" class="sitewelcome active">
     <div class="loading"></div>
   </div>
-    
-  
-      <div id="topNavBar" class="topNavBar">
-          <div class="topNavBar-inner clearfix">
-            <!-- 在套一层新的盒子 -->
-            <a class="logo" href="#" alt="logo" style="float: left;">
-              <span class="rs">RS</span>
-              <span class="card">card</span>
-            <!-- span 之间若是有回车，就会多出一个空格 -->
-            </a>
-            <nav class="menu" style="float: right;">
-              <ul class="clearfix">
-                <li>
-                  <a  href="#About">关于</a>
-                </li>
-                <li>
-                  <a href="#Skills">技能</a>
-                </li>
-                <li>
-                  <a  href="#Works">作品</a>
-                   <ul class="submenu">
-                     <li>作品1</li>
-                     <li>作品2</li>
-                     <li>作品3</li>
-                   </ul>
-                </li>
-                <li>
-                  <a  href="#Blog">博客</a>
-                   <ul class="submenu">
-                    <li>博客1</li>
-                    <li>博客2</li>
-                    <li>博客3</li>
-                   </ul>
-                </li>
-                <li>
-                  <a href="#Date">日历</a>
-                </li>
-                <li>
-                  <a href="#Connect">联系方式</a>
-                </li>
-                <li>
-                  <a href="#Others">其他</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-      </div>
-    
-      <div class="banner">
-        <div class="mask"></div>
-      </div>
-      <main style="margin-top:-400px;">
-          <div class="Usercard">
-            <div class="pictureAndText clearfix" id="About">
-              <div class="picture" style="float:left;">
-                <img src="./startuper-hover-1-299x347.jpg" alt="头像">
-              </div>
-              <div class="text" style="float:left;">
-              
-                  <span class="welcome">Hello<span class="triangle"></span></span>
-                  <h1>黄笑</h1>
-                  <p>前端开发工程师</p>
-                  <hr>
-                  <dl>
-                    <dt>年龄</dt>
-                    <dd>18</dd>
-                    <dt>所在城市</dt>
-                    <dd>北京</dd>
-                    <dt>邮箱</dt>
-                    <dd>huangxiao233@gmail.com</dd>
-                    <dt>手机</dt>
-                    <dd>18811395195</dd>
-                  </dl>
-                </div>
-              </div>
-          
-            <footer class="media">
-              <a href="#">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-github"></use>
-                  </svg>
-              </a>
-              <a href="#">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-zhihu"></use>
-                  </svg>
-              </a>
-              <a href="#">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-weixin"></use>
-                  </svg>
-              </a>
-              <a href="#">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-weibo"></use>
-                  </svg>
-              </a>
-              <a href="#">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#icon-iconfonticon6"></use>
-                  </svg>
-              </a>
-            </footer>
-          </div>
-      
-      <p class="button-wrapper" style="text-align:center;">
-        <a class="button" href="./设备购置计划卡.pdf"target="_blank" download>下载 PDF 简历</a>
-      </p>
 
-        <p class="self-intro">
-          黄笑， 资深前端工程师，资深前端讲师，现在在 北京科技大学 学习前端。
-          <br> 技能：前端开发，Rails 开发，Node.js 开发
-        </p>
 
-      </main>
-      <section class="skills" id ="Skills">
-        <h2>技能</h2>
-        <ol class="clearfix">
+  <div id="topNavBar" class="topNavBar">
+    <div class="topNavBar-inner clearfix">
+      <!-- 在套一层新的盒子 -->
+      <a class="logo" href="#" alt="logo" style="float: left;">
+        <span class="rs">RS</span>
+        <span class="card">card</span>
+        <!-- span 之间若是有回车，就会多出一个空格 -->
+      </a>
+      <nav class="menu" style="float: right;">
+        <ul class="clearfix">
           <li>
-            <h3>HTML 5 &amp; CSS 3</h3>
-            <div class="progressBar">
-              <div class="progress"></div>
-            </div>
+            <a href="#About">关于</a>
           </li>
           <li>
-              <h3>JavaScript</h3>
-              <div class="progressBar">
-                <div class="progress">
-                </div>
-              </div>
+            <a href="#Skills">技能</a>
           </li>
           <li>
-              <h3>jQuery</h3>
-              <div class="progressBar">
-                <div class="progress">
-                </div>
-              </div>
+            <a href="#Works">作品</a>
+            <ul class="submenu">
+              <li>作品1</li>
+              <li>作品2</li>
+              <li>作品3</li>
+            </ul>
           </li>
           <li>
-              <h3>Vue</h3>
-              <div class="progressBar">
-                <div class="progress">
-                </div>
-              </div>
+            <a href="#Blog">博客</a>
+            <ul class="submenu">
+              <li>博客1</li>
+              <li>博客2</li>
+              <li>博客3</li>
+            </ul>
           </li>
           <li>
-              <h3>React</h3>
-              <div class="progressBar">
-                <div class="progress">
-                </div>
-              </div>
+            <a href="#Date">日历</a>
           </li>
           <li>
-              <h3>HTTP</h3>
-              <div class="progressBar">
-                <div class="progress">
-                </div>
-              </div>
+            <a href="#Connect">联系方式</a>
           </li>
-        </ol>
-      </section>
-      <section class="portfolio" id="Works">
-        <h2>作品集</h2>
-        <nav>
-          <ol class="clearfix">
-            <li id="All">所有</li>
-            <li id="Framework">框架</li>
-            <li id="Vallina">原生JS&amp;CSS</li>
-          </ol>
-          <div id="portfoliobar" class="bar state-1">
-            <div class="bar-inner"></div>
-          </div> 
-        </nav>
-        <script>
-          All.onclick = function(){
-            portfoliobar.className = "bar state-1"
-          }
-          Framework.onclick = function(){
-            portfoliobar.className = "bar state-2"
-          }
-          Vallina.onclick = function(){
-            portfoliobar.className = "bar state-3"
-          }
-        </script>
-    
-        <div class="works" style="height:597px;">
-          <div class="big" style="top: 0; left: 0;">
-            <img src="./img/1.jpg" alt="作品1">
-          </div>
-          <div class="small1" style="top:313px; left:645px;" alt="作品2">
-              <img src="./img/2.jpg" >
-          </div>
-          <div class="small2" style="top: 0px; left:645px;" alt="作品3">
-              <img src="./img/3.jpg" >
+          <li>
+            <a href="#Others">其他</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="mask"></div>
+  </div>
+  <main style="margin-top:-400px;">
+
+    <div class="Usercard">
+      <div class="pictureAndText clearfix" id="About">
+        <div class="picture" style="float:left;">
+          <img src="./startuper-hover-1-299x347.jpg" alt="头像">
+        </div>
+        <div class="text" style="float:left;">
+
+          <span class="welcome">Hello
+            <span class="triangle"></span>
+          </span>
+          <h1>黄笑</h1>
+          <p>前端开发工程师</p>
+          <hr>
+          <dl>
+            <dt>年龄</dt>
+            <dd>18</dd>
+            <dt>所在城市</dt>
+            <dd>北京</dd>
+            <dt>邮箱</dt>
+            <dd>huangxiao233@gmail.com</dd>
+            <dt>手机</dt>
+            <dd>18811395195</dd>
+          </dl>
+        </div>
+      </div>
+
+      <footer class="media">
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-github"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-zhihu"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-weixin"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-weibo"></use>
+          </svg>
+        </a>
+        <a href="#">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-iconfonticon6"></use>
+          </svg>
+        </a>
+      </footer>
+    </div>
+
+    <p class="button-wrapper" style="text-align:center;">
+      <a class="button" href="./设备购置计划卡.pdf" target="_blank" download>下载 PDF 简历</a>
+    </p>
+
+    <p class="self-intro">
+      黄笑， 资深前端工程师，资深前端讲师，现在在 北京科技大学 学习前端。
+      <br> 技能：前端开发，Rails 开发，Node.js 开发
+    </p>
+
+  </main>
+  <section class="skills" id="Skills">
+    <h2>技能</h2>
+    <ol class="clearfix">
+      <li>
+        <h3>HTML 5 &amp; CSS 3</h3>
+        <div class="progressBar">
+          <div class="progress"></div>
+        </div>
+      </li>
+      <li>
+        <h3>JavaScript</h3>
+        <div class="progressBar">
+          <div class="progress">
           </div>
         </div>
-    </section>
-  </body>
-  <script> setTimeout(function()
-          {sitewelcome.classList.remove("active")},1000)
-          // 用户滑动传播窗口触发函数
-          window.onscroll = function(x){
+      </li>
+      <li>
+        <h3>jQuery</h3>
+        <div class="progressBar">
+          <div class="progress">
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>Vue</h3>
+        <div class="progressBar">
+          <div class="progress">
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>React</h3>
+        <div class="progressBar">
+          <div class="progress">
+          </div>
+        </div>
+      </li>
+      <li>
+        <h3>HTTP</h3>
+        <div class="progressBar">
+          <div class="progress">
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+  <section class="portfolio" id="Works">
+    <h2>作品集</h2>
+  <div id=myslides">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <img src="/works/apple.jpg"  class='swiper-slide' alt="">
+          <img src="/works/canvas.jpg" class='swiper-slide' alt="">
+          <img src="/works/nav.jpg" class='swiper-slide' alt="">
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
 
-            if (window.scrollY > 0) {//获取窗口滚动高度
-                topNavBar.classList.add("sticky")
-              } else {
-                topNavBar.classList.remove("sticky")
-              }
-            }
-            // 这样写，移出的时候没有办法选择作品
-            //接受一个选择器，返回选择器的所有元素
-    let liTags = document.querySelectorAll('nav.menu >ul > li')
-    // console.log(liTags[0])
-    for (let i=0;i<liTags.length;i++){
-         liTags[i].onmouseenter = function(x){//鼠标进入触发函数
-          
-            x.currentTarget.classList.add('active')
-          //  找弟弟
-        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
-        // 所以要用两次
-          // console.log(a.nextSibling.nextSibling)
-    
-          //  哪怕就一个也要写上[0],因为是elements,它返回的是数组
-          //  所以要取出这个元素
-            
-        
-        //  nodetype = 3 说明他是一个文本，我们要找节点弟弟
-          // TagName永远返回的是大写
-          // 我们不知道A和ul之间有什么，有回车，搞不好还有span 
-        //      while(brother.tagName !== 'UL' ){
-        // //  while(brother.nodeType === 3 ){
-        //       brother = brother.nextSibling
-        //    }
-            //  brother.classList.add('active')
-            //  console.log( brother.classList)
-         }
-          // 拿开就没有了
-           liTags[i].onmouseleave = function(x){
-          //  console.log('mouseenter')
-            x.currentTarget.classList.remove('active')
-          //  找弟弟
-        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
-        // 所以要用两次
-          // console.log(a.nextSibling.nextSibling)
-    
-           
+        <!-- 如果需要导航按钮 -->
+       
 
-            // while (brother.tagName !== 'UL') {
-            //   brother = brother.nextSibling
-            // }
-              // brother.classList.remove('active')
-          }
-    
+        <!-- 如果需要滚动条 -->
+        <!-- <div class="swiper-scrollbar"></div> -->
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <nav>
+      <ol class="clearfix">
+        <li id="All">所有</li>
+        <li id="Framework">框架</li>
+        <li id="Vallina">原生JS&amp;CSS</li>
+      </ol>
+      <div id="portfoliobar" class="bar state-1">
+        <div class="bar-inner"></div>
+      </div>
+    </nav>
+    <script>
+      All.onclick = function () {
+        portfoliobar.className = "bar state-1"
+      }
+      Framework.onclick = function () {
+        portfoliobar.className = "bar state-2"
+      }
+      Vallina.onclick = function () {
+        portfoliobar.className = "bar state-3"
+      }
+    </script>
+    <!-- 变成轮播 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"></script>
+    <script>console.log(window.Swiper)
+      var mySwiper = new Swiper('.swiper-container', {
+        // direction: 'vertical',
+        loop: true,
+
+        // 如果需要分页器
+        pagination: {
+          el: '.swiper-pagination',
+        },
+
+        // 如果需要前进后退按钮
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+
+        // 如果需要滚动条
+        // scrollbar: {
+        //   el: '.swiper-scrollbar',
+        // },
+      }) </script>
+    <div class="works" style="height:597px;">
+      
+    </div>
+  </section>
+</body>
+<script> 
+  setTimeout(function () { sitewelcome.classList.remove("active") }, 1000)
+  // 用户滑动传播窗口触发函数
+  window.onscroll = function (x) {
+
+    if (window.scrollY > 0) {//获取窗口滚动高度
+      topNavBar.classList.add("sticky")
+    } else {
+      topNavBar.classList.remove("sticky")
     }
-   let aTags = document.querySelectorAll('nav.menu >ul >li >a')
+  }
+  // 这样写，移出的时候没有办法选择作品
+  //接受一个选择器，返回选择器的所有元素
+  let liTags = document.querySelectorAll('nav.menu >ul > li')
+  // console.log(liTags[0])
+  for (let i = 0; i < liTags.length; i++) {
+    liTags[i].onmouseenter = function (x) {//鼠标进入触发函数
+
+      x.currentTarget.classList.add('active')
+      //  找弟弟
+      // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+      // 所以要用两次
+      // console.log(a.nextSibling.nextSibling)
+
+      //  哪怕就一个也要写上[0],因为是elements,它返回的是数组
+      //  所以要取出这个元素
+
+
+      //  nodetype = 3 说明他是一个文本，我们要找节点弟弟
+      // TagName永远返回的是大写
+      // 我们不知道A和ul之间有什么，有回车，搞不好还有span 
+      //      while(brother.tagName !== 'UL' ){
+      // //  while(brother.nodeType === 3 ){
+      //       brother = brother.nextSibling
+      //    }
+      //  brother.classList.add('active')
+      //  console.log( brother.classList)
+    }
+    // 拿开就没有了
+    liTags[i].onmouseleave = function (x) {
+      //  console.log('mouseenter')
+      x.currentTarget.classList.remove('active')
+      //  找弟弟
+      // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+      // 所以要用两次
+      // console.log(a.nextSibling.nextSibling)
+
+
+
+      // while (brother.tagName !== 'UL') {
+      //   brother = brother.nextSibling
+      // }
+      // brother.classList.remove('active')
+    }
+
+  }
+  let aTags = document.querySelectorAll('nav.menu >ul >li >a')
   //  console.log(aTags)
-   for(let i=0;i<aTags.length;i++){
-     aTags[i].onclick = function(x){
+  for (let i = 0; i < aTags.length; i++) {
+    aTags[i].onclick = function (x) {
       //  阻止默认动作，a标签会跳转，会打开新页面
-       x.preventDefault()
+      x.preventDefault()
       //  获取用户点的标签
-       let a = x.currentTarget
+      let a = x.currentTarget
       //  这样返回的是浏览器处理过的，会带IP地址
       //  console.log(a.href)
       // 获取A标签对应的href
       let href = a.getAttribute('href')
       // 通过href找到对应的元素 
-       console.log(a.getAttribute('href'))
+      console.log(a.getAttribute('href'))
       //  找到这个节点
       // 没有ALL，返回的不是数组了，只有一个
       // 方法返回文档中匹配指定 CSS 选择器的一个元素。
-       let element = document.querySelector(href)
+      let element = document.querySelector(href)
       //  获取元素距离页面顶部（不是浏览器）的像素数，就是你滚动多少能看到
-       let top = element.offsetTop
-       //top = element.getBoundTop.这个是离浏览器的距离
-       console.log(top)
-       window.scrollTo(0,top - 60)//左右划，第一个参数
-       console.log(element)
-        
+      let top = element.offsetTop
+      //top = element.getBoundTop.这个是离浏览器的距离
+      console.log(top)
+      window.scrollTo(0, top - 60)//左右划，第一个参数
+      console.log(element)
+
       //  是什么HREF就是什么
 
-     }
-   }
+    }
+  }
 
 
-          
-         
 
-  </script>
+
+
+</script>
+
 </html>

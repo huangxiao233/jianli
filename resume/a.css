@@ -310,7 +310,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .skills{
   max-width: 930px;
- 
+ /* margin-bottom: 20px; */
   margin-left: auto;
   margin-right: auto;
   margin-top:60px;
@@ -412,6 +412,9 @@ margin-top: 10px;
   margin:60px auto; 
   
  
+}
+.portfolio h2{
+  margin-bottom: 30px;
 }
 .portfolio .bar{
   
