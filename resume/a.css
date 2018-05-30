@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6{
   /* box-shadow: h-shadow v-shadow blur spread color inset; */
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   /* 决定谁在最上层 */
-  z-index: 1;
+  z-index: 15;
   color: #3d4451;
   height:50px;
 }
@@ -363,7 +363,7 @@ border-radius: 11%;
 background: #e8676b;
 height:3px;
 }
-
+section.message>h2,
 .portfolio>h2{
   text-align: center;
   font-size: 34px;
@@ -456,6 +456,16 @@ margin-top: 10px;
 }
 .works .small2{
   position: absolute;
+}
+
+section.message > ol{
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #DDD;
+}
+section.message > ol > li {
+  padding: 16px;
+  border-bottom: 1px solid #DDD;
 }
 
 

@@ -3,12 +3,12 @@
 
 <head>
   <title>黄笑的个人简历</title>
-  
+
   <link rel="stylesheet" href="./loading.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/css/swiper.css">
   <link rel="stylesheet" href="./a.css">
   <SCript src="//at.alicdn.com/t/font_592834_jcg38trf2x8t1emi.js"></SCript>
-
+  <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.7.0/dist/av-min.js"></script>
   <style type="text/css">
     .icon {
       width: 1em;
@@ -25,7 +25,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 1;
+      
       background: #888;
       /* display: flex; */
       justify-content: center;
@@ -42,21 +42,19 @@
       width: 668px;
       height: 501px;
     }
-    .swiper-button-prev{
-      border:red solid 1px;
-      top:1650px;
-      left:387px;
-      
-    }
-    .swiper-button-next{
-      border:red solid 1px;
-      top:1650px;
-      left:1100px;
+
+    .swiper-button-prev {
+      border: red solid 1px;
+     
+
     }
 
-    .swiper-slide {
-      background: white;
+    .swiper-button-next {
+      border: red solid 1px;
+     
     }
+
+    
   </style>
 </head>
 
@@ -180,7 +178,6 @@
       黄笑， 资深前端工程师，资深前端讲师，现在在 北京科技大学 学习前端。
       <br> 技能：前端开发，Rails 开发，Node.js 开发
     </p>
-
   </main>
   <section class="skills" id="Skills">
     <h2>技能</h2>
@@ -228,20 +225,33 @@
       </li>
     </ol>
   </section>
+  
+  <section class="message">
+      <h2>留言</h2>
+      <form id="postMessageForm">
+        <label for="">姓名</label>
+        <input type="text" name="name">
+        <label for="">内容</label>
+        <input type="text" name="content">
+        <input type="submit" value="提交" >
+      </form>
+      <ol id ="messageList"></ol>
+  </section>
+  
   <section class="portfolio" id="Works">
     <h2>作品集</h2>
-  <div id=myslides">
-    <div class="swiper-container">
+    <div id="myslides">
+      <div class="swiper-container">
         <div class="swiper-wrapper">
-          <img src="/works/apple.jpg"  class='swiper-slide' alt="">
-          <img src="/works/canvas.jpg" class='swiper-slide' alt="">
-          <img src="/works/nav.jpg" class='swiper-slide' alt="">
+          <img src="/works/apple.jpg" class='swiper-slide' >
+          <img src="/works/canvas.jpg" class='swiper-slide' >
+          <img src="/works/nav.jpg" class='swiper-slide' >
         </div>
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
 
         <!-- 如果需要导航按钮 -->
-       
+
 
         <!-- 如果需要滚动条 -->
         <!-- <div class="swiper-scrollbar"></div> -->
@@ -249,145 +259,101 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
-    <nav>
-      <ol class="clearfix">
-        <li id="All">所有</li>
-        <li id="Framework">框架</li>
-        <li id="Vallina">原生JS&amp;CSS</li>
-      </ol>
-      <div id="portfoliobar" class="bar state-1">
-        <div class="bar-inner"></div>
-      </div>
-    </nav>
-    <script>
-      All.onclick = function () {
-        portfoliobar.className = "bar state-1"
-      }
-      Framework.onclick = function () {
-        portfoliobar.className = "bar state-2"
-      }
-      Vallina.onclick = function () {
-        portfoliobar.className = "bar state-3"
-      }
-    </script>
+  </section> 
+  
     <!-- 变成轮播 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.js"></script>
-    <script>console.log(window.Swiper)
-      var mySwiper = new Swiper('.swiper-container', {
-        // direction: 'vertical',
-        loop: true,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.1.1/Tween.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.0/js/swiper.min.js"></script>
+    <!-- 模块化 -->
+    <script src="./init-swiper.js"></script>
+    <script src="./message.js"></script>
+  <script> 
+   
+    setTimeout(function () { sitewelcome.classList.remove("active") }, 1000)
+    // 用户滑动传播窗口触发函数
+    window.onscroll = function (x) {
 
-        // 如果需要分页器
-        pagination: {
-          el: '.swiper-pagination',
-        },
+      if (window.scrollY > 0) {//获取窗口滚动高度
+        topNavBar.classList.add("sticky")
+      } else {
+        topNavBar.classList.remove("sticky")
+      }
+    }
+    // 这样写，移出的时候没有办法选择作品
+    //接受一个选择器，返回选择器的所有元素
+    let liTags = document.querySelectorAll('nav.menu >ul > li')
+    // console.log(liTags[0])
+    for (let i = 0; i < liTags.length; i++) {
+      liTags[i].onmouseenter = function (x) {//鼠标进入触发函数
 
-        // 如果需要前进后退按钮
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
+        x.currentTarget.classList.add('active')
+        //  找弟弟
+        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+        // 所以要用两次
+        // console.log(a.nextSibling.nextSibling)
 
-        // 如果需要滚动条
-        // scrollbar: {
-        //   el: '.swiper-scrollbar',
-        // },
-      }) </script>
-    <div class="works" style="height:597px;">
-      
-    </div>
-  </section>
+        //  哪怕就一个也要写上[0],因为是elements,它返回的是数组
+        //  所以要取出这个元素
+
+
+        //  nodetype = 3 说明他是一个文本，我们要找节点弟弟
+        // TagName永远返回的是大写
+        // 我们不知道A和ul之间有什么，有回车，搞不好还有span 
+        //      while(brother.tagName !== 'UL' ){
+        // //  while(brother.nodeType === 3 ){
+        //       brother = brother.nextSibling
+        //    }
+        //  brother.classList.add('active')
+        //  console.log( brother.classList)
+      }
+      // 拿开就没有了
+      liTags[i].onmouseleave = function (x) {
+        //  console.log('mouseenter')
+        x.currentTarget.classList.remove('active')
+        //  找弟弟
+        // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
+        // 所以要用两次
+        // console.log(a.nextSibling.nextSibling)
+
+
+
+        // while (brother.tagName !== 'UL') {
+        //   brother = brother.nextSibling
+        // }
+        // brother.classList.remove('active')
+      }
+
+    }
+    let aTags = document.querySelectorAll('nav.menu >ul >li >a')
+    //  console.log(aTags)
+    for (let i = 0; i < aTags.length; i++) {
+      aTags[i].onclick = function (x) {
+        //  阻止默认动作，a标签会跳转，会打开新页面
+        x.preventDefault()
+        //  获取用户点的标签
+        let a = x.currentTarget
+        //  这样返回的是浏览器处理过的，会带IP地址
+        //  console.log(a.href)
+        // 获取A标签对应的href
+        let href = a.getAttribute('href')
+        // 通过href找到对应的元素 
+        console.log(a.getAttribute('href'))
+        //  找到这个节点
+        // 没有ALL，返回的不是数组了，只有一个
+        // 方法返回文档中匹配指定 CSS 选择器的一个元素。
+        let element = document.querySelector(href)
+        //  获取元素距离页面顶部（不是浏览器）的像素数，就是你滚动多少能看到
+        let top = element.offsetTop
+        //top = element.getBoundTop.这个是离浏览器的距离
+        console.log(top)
+        window.scrollTo(0, top - 60)//左右划，第一个参数
+        console.log(element)
+
+        //  是什么HREF就是什么
+
+      }
+    }
+  </script>
 </body>
-<script> 
-  setTimeout(function () { sitewelcome.classList.remove("active") }, 1000)
-  // 用户滑动传播窗口触发函数
-  window.onscroll = function (x) {
-
-    if (window.scrollY > 0) {//获取窗口滚动高度
-      topNavBar.classList.add("sticky")
-    } else {
-      topNavBar.classList.remove("sticky")
-    }
-  }
-  // 这样写，移出的时候没有办法选择作品
-  //接受一个选择器，返回选择器的所有元素
-  let liTags = document.querySelectorAll('nav.menu >ul > li')
-  // console.log(liTags[0])
-  for (let i = 0; i < liTags.length; i++) {
-    liTags[i].onmouseenter = function (x) {//鼠标进入触发函数
-
-      x.currentTarget.classList.add('active')
-      //  找弟弟
-      // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
-      // 所以要用两次
-      // console.log(a.nextSibling.nextSibling)
-
-      //  哪怕就一个也要写上[0],因为是elements,它返回的是数组
-      //  所以要取出这个元素
-
-
-      //  nodetype = 3 说明他是一个文本，我们要找节点弟弟
-      // TagName永远返回的是大写
-      // 我们不知道A和ul之间有什么，有回车，搞不好还有span 
-      //      while(brother.tagName !== 'UL' ){
-      // //  while(brother.nodeType === 3 ){
-      //       brother = brother.nextSibling
-      //    }
-      //  brother.classList.add('active')
-      //  console.log( brother.classList)
-    }
-    // 拿开就没有了
-    liTags[i].onmouseleave = function (x) {
-      //  console.log('mouseenter')
-      x.currentTarget.classList.remove('active')
-      //  找弟弟
-      // a.nextSibling是找兄弟节点的，但是a标签和UL之间隔着一个回车键
-      // 所以要用两次
-      // console.log(a.nextSibling.nextSibling)
-
-
-
-      // while (brother.tagName !== 'UL') {
-      //   brother = brother.nextSibling
-      // }
-      // brother.classList.remove('active')
-    }
-
-  }
-  let aTags = document.querySelectorAll('nav.menu >ul >li >a')
-  //  console.log(aTags)
-  for (let i = 0; i < aTags.length; i++) {
-    aTags[i].onclick = function (x) {
-      //  阻止默认动作，a标签会跳转，会打开新页面
-      x.preventDefault()
-      //  获取用户点的标签
-      let a = x.currentTarget
-      //  这样返回的是浏览器处理过的，会带IP地址
-      //  console.log(a.href)
-      // 获取A标签对应的href
-      let href = a.getAttribute('href')
-      // 通过href找到对应的元素 
-      console.log(a.getAttribute('href'))
-      //  找到这个节点
-      // 没有ALL，返回的不是数组了，只有一个
-      // 方法返回文档中匹配指定 CSS 选择器的一个元素。
-      let element = document.querySelector(href)
-      //  获取元素距离页面顶部（不是浏览器）的像素数，就是你滚动多少能看到
-      let top = element.offsetTop
-      //top = element.getBoundTop.这个是离浏览器的距离
-      console.log(top)
-      window.scrollTo(0, top - 60)//左右划，第一个参数
-      console.log(element)
-
-      //  是什么HREF就是什么
-
-    }
-  }
-
-
-
-
-
-</script>
 
 </html>
