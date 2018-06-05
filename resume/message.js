@@ -75,6 +75,7 @@
           messageList.appendChild(li)
           console.log(4)
           myForm.querySelector('input[name=content]').value = ''
+         myForm.querySelector('input[name=name]').value = ''
             
     })
   },
