@@ -59,15 +59,6 @@
           }
         )
     },
-    // let myForm = document.querySelector('#postMessageForm')
-    // 监听提交，不监听click，因为回车也是一种提交，
-    bindEvents: function () {
-      this.form.addEventListener('submit', function(e){
-        e.preventDefault()
-        this.saveMessage()
-      })
-    },
-
     saveMessage: function(){
       let myForm = this.form
       console.log(8)
@@ -86,7 +77,16 @@
           myForm.querySelector('input[name=content]').value = ''
             
     })
-  }
+  },
+    // let myForm = document.querySelector('#postMessageForm')
+    // 监听提交，不监听click，因为回车也是一种提交，
+    bindEvents: function () {
+      this.form.addEventListener('submit', (e)=>{
+        e.preventDefault()
+        this.saveMessage()
+      })
+    }
+    
 }
   controller.init(view,model)
 }.call()
