@@ -1,0 +1,974 @@
+<<<<<<< HEAD:a.css
+body{
+  background-color:#EFEFEF;
+  color:black;
+  margin:0;
+}
+a{             
+  color:inherit;
+  text-decoration: none;
+  /* a标签的默认样式是有下划线的 */
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;
+
+}
+/* 将所有的列表的自带样式都去掉，比如前面的数字 */
+li,ol{
+  list-style: none;
+}
+/* 所有标题不加粗 */
+h1,h2,h3,h4,h5,h6{
+  font-weight:normal;
+}
+
+.clearfix::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.banner{
+  height:515px;
+  
+}
+.topNavBar nav>ul>li{
+  float: left;
+  position: relative;
+
+}
+.topNavBar{
+  padding-top: 15px;
+  padding-bottom: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+  /* 左右PADDING必须为，否则就内容的WIDTH为100%，就会超过BODY */
+  position: fixed;
+  /* 相对于屏幕固定 */
+  width: 100%;
+  color: #b7b7b7;
+  transition: all 0.5s;
+}
+.topNavBar.sticky{
+  background: white;
+  /* box-shadow: h-shadow v-shadow blur spread color inset; */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  /* 决定谁在最上层 */
+  z-index: 15;
+  color: #3d4451;
+  height:50px;
+}
+.topNavBar-inner{
+  padding: 0 16px;
+  
+  
+
+
+
+}
+.topNavBar .topNavBar-inner>nav>ul{
+  list-style: none;
+  }
+.topNavBar .topNavBar-inner>nav>ul>li>a{
+  font-size: 12px;
+  /* text-decoration: none; */
+  color: inherit;
+  font-weight: bold;
+  border: transparent 3px solid;
+  padding-bottom:5px;
+  padding-top: 10px;
+  display: block;
+  margin-right: 15px;
+  margin-left: 15px;
+  position: relative;
+  
+}
+.topNavBar .topNavBar-inner>nav{
+  padding-top: 1px;
+ 
+}
+/* 伪类就是假的DIV */
+.topNavBar nav > ul>li.active>a::after{
+  content:'';
+  display: flex;
+  width:100%;
+  top:100%;
+  height: 2px;
+  left:0;
+  position: absolute;
+  animation: slide 0.5s ;
+  background: red;
+}
+/* .topNavBar .topNavBar-inner>nav>ul>li>a:hover{
+  border-bottom: tomato 3px solid;
+} */
+@keyframes slide{
+  0%{
+    width:0%;
+  }
+  100%{
+    width:100%;
+  } 
+
+}
+@keyframes submenuSlide{
+  0%{
+    margin-left: 10%;
+  }
+  100%{
+    margin-left: 30%;
+  } 
+}
+.topNavBar .topNavBar-inner .logo{
+  padding-top:14px;
+  padding-bottom: 23px;
+}
+.topNavBar .topNavBar-inner .logo .rs{
+  color:#E6686A;
+  font-family: "Arial Black";
+  font-size: 24px;
+  margin-right:  4px;
+ 
+}
+.topNavBar .topNavBar-inner .logo .card{
+  color: #9a9da2;
+  font-family: "Arial Black";
+  font-size: 24px;
+ 
+  }
+.topNavBar  .submenu{
+  display: none;
+  position: absolute;
+  top:100%;
+  background: white;
+  color:#3d4451;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  
+}
+/* 不是绝对定位，是文档流元素 */
+/* 绝对定位不受父元素影响 */
+.topNavBar li.active> .submenu{
+  display: block;
+  position: absolute;
+  top:100%;
+  padding-left:0px;
+  animation: submenuSlide 1s;
+}
+
+/* 不准换行 */
+.topNavBar  .submenu>li{
+  white-space: nowrap;
+  padding: 10px;
+} 
+.banner{
+  background-image: url(./rs-cover-2-2-1-1.jpg);
+  background-position: center, center;
+  height: 515px;
+  background-position: center center;
+  background-size:cover;
+  
+ 
+}
+.banner .mask{
+  height:515px;
+  background-color: rgba(0,0,0,0.8);
+  
+}
+.Usercard{
+  box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.75);
+  /* 加阴影会更加逼真 */
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+}
+.welcome{
+  background-color: #E6686A;
+  font-size: 12px;
+  display: inline-block;
+  color:white;
+  padding:7px 20px 7px 20px;
+  line-height: 16px;
+  position: relative;
+  margin-bottom: 18px;
+  
+}
+.welcome .triangle{
+  display: block;
+  border: 5px solid red ;
+  width:0px;
+  border-left-color:#E6686A;
+  border-top-color:#E6686A;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position:absolute;
+  top:100%;
+  left:10%;
+}
+ .Usercard .text{
+  background-position: center,center;
+  margin-left:90px;
+  margin-top:70px;
+  width:430px;
+}
+.Usercard .picture{
+  margin-top:70px;
+  margin-left:70px;
+}
+
+.Usercard dl dt{
+  font-weight: bold;
+  float: left;
+  width:30%;
+  padding:5px 0;
+  /* clearfix只能换一行 */
+}
+.Usercard dl dd{
+  float: left;
+  width:70%;
+  padding:5px 0;
+
+  /* 利用自动换行的特性 */
+  
+}
+.Usercard .text h1{
+  margin-bottom: 2px;
+}
+.Usercard .text hr{
+  margin-top: 29px;
+  margin-bottom: 24px;
+  height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;}
+    /* 把边框其他的边去掉，只保留最上面那一条 */
+.media{
+      background: #E6686A;
+      text-align: center;
+      margin-top:50px;
+      
+    }
+.media svg{
+  width:30px;
+  height:30px;
+  fill:white;
+  margin:10px;
+  vertical-align: top;
+  /* 保证上下空间一致 */
+}
+
+
+.media >a:hover{
+  border:solid transparent 1px;
+  display:inline-block;
+  border-radius:50%;
+  background: #CF5D5F;
+  }
+.media >a{
+  border:solid transparent 1px;
+  display:inline-block;
+  /* 防止抖动 */
+}
+.media p{
+  font-size:15px;
+}
+.main{
+  box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.75);
+}
+
+.button{
+   border :solid #CBCDCF;
+  /* 内联元素的左右PADDING有用，上下没有用 ,撑不起来*/
+  padding:21px 60px;
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  /* 如果不是BLOCK元素，写MARGIN:0 AUTO 是没办法居中的，因为左右未知 */
+  /* /* 内联元素要居中，必须得在父亲元素里面加TEXT-ALIGN,上面的DIV的宽度对我没影响。每个DIV是自己的DIV */
+  background: #EFEFEF;
+  transition:box-shadow 0.5s;
+  /* 阴影过渡为1秒 */
+}
+.button:hover{
+  box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.75);
+}
+.button-wrapper{
+  margin-top:40px;
+}
+.self-intro{
+  max-width: 600px;
+  /* 如果不进行设置，将是整个屏幕那么宽 */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-family:kai;
+  line-height: 2.0;
+  text-align: center;
+}
+.skills{
+  max-width: 930px;
+ /* margin-bottom: 20px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:60px;
+
+}
+.skills h3{
+  padding-right: 30px;
+}
+.skills>h2{
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 30px;
+
+}
+.skills>ol {
+  background: white;
+  box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.75);
+  padding: 50px 60px 20px;
+  
+
+}
+.skills > ol > li{
+  float: left;
+  width: 48%;
+  /* BOX-SIZEING是包含了内边距和边框的 */
+  box-sizing: border-box;
+  
+}
+/* 选中第N个儿子，EVEN是数个 */
+/* 让偶数的右浮. 表示一种状态的，有时候存在有时候不存在，就是伪类。
+/* 两个冒号的就是伪元素 */
+.skills > ol > li:nth-child(even){
+  float: right;
+}
+
+
+.skills .progressBar{
+  background: #fae1e1 ;
+  height:3px;
+  border-radius: 11%;
+  margin: 2px 0 40px ;
+  
+
+}
+.skills .progress{
+width:30%;
+border-radius: 11%;
+background: #e8676b;
+height:3px;
+}
+section.message>h2,
+.portfolio>h2{
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin:30px 0 10px;
+}
+.portfolio nav li{
+float: left;
+/* 不可以加下面这句话 */
+/* 否则左右会有边距 */
+/* width:50px; */
+margin-left: 20px;
+/* 鼠标在上面是小手 */
+cursor: pointer;
+margin-top: 10px;
+
+}
+/* 让第一个元素的左外边距为0 */
+.portfolio nav li:nth-child(1){
+  margin-left: 0;
+}
+/* 如果想要MARGIN:AUTO来居中，必须设置一个宽度width */
+.portfolio > nav{
+  text-align: center; 
+  display: inline-block;
+  vertical-align: top; 
+}
+.portfolio ol{
+  
+  display: inline-block;
+  vertical-align: top;
+}
+ 
+  /* 写display：inline-block 是为了让他的宽度自动收缩，但是会出BUG */
+  /* 写了DISPLAY:INLINE-BLOCK之后，要加一个垂直，否则会多出来一节 */
+  /* display: inline-block;
+  vertical-align: top; */
+
+
+/* 默认和NAV一个宽度，所以要让NAV也变成inline-block ,让他收缩，让他的宽度由OL决定，OL宽度由字决定 */
+
+.portfolio{
+  text-align: center;
+  max-width: 940px;
+  margin:60px auto; 
+  
+ 
+}
+.portfolio h2{
+  margin-bottom: 30px;
+}
+.portfolio .bar{
+  
+  background:white;
+  height: 5px;
+  margin-top: 1px;
+  border-radius: 12px;
+}
+.bar-inner{
+  height:100%;
+  background:#e8676b;
+  border-radius: 12px;
+  /* 增加过渡的动画效果 */
+  transition: all 0.3s
+}
+.bar.state-1 .bar-inner{
+  margin-left: 0;
+  width: 20%;
+}
+.bar.state-2 .bar-inner{
+  margin-left: 45px;
+  width: 25%;
+}
+.bar.state-3 .bar-inner{
+  margin-left: 98px;
+  width: 50%;
+}
+
+.works{
+  position: relative;
+
+  margin-top: 10px;
+}
+.works .big {
+  position: absolute;
+}
+.works .small1{
+  position: absolute;
+}
+.works .small2{
+  position: absolute;
+}
+
+section.message > ol{
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #DDD;
+}
+section.message > ol > li {
+  padding: 16px;
+  border-bottom: 1px solid #DDD;
+}
+
+
+ 
+
+=======
+body{
+  background-color:#EFEFEF;
+  color:black;
+  margin:0;
+}
+a{             
+  color:inherit;
+  text-decoration: none;
+  /* a标签的默认样式是有下划线的 */
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+hr{
+    height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;
+
+}
+/* 将所有的列表的自带样式都去掉，比如前面的数字 */
+li,ol{
+  list-style: none;
+}
+/* 所有标题不加粗 */
+h1,h2,h3,h4,h5,h6{
+  font-weight:normal;
+}
+
+.clearfix::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+.banner{
+  height:515px;
+  
+}
+.topNavBar nav>ul>li{
+  float: left;
+  position: relative;
+
+}
+.topNavBar{
+  padding-top: 15px;
+  padding-bottom: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+  /* 左右PADDING必须为，否则就内容的WIDTH为100%，就会超过BODY */
+  position: fixed;
+  /* 相对于屏幕固定 */
+  width: 100%;
+  color: #b7b7b7;
+  transition: all 0.5s;
+}
+.topNavBar.sticky{
+  background: white;
+  /* box-shadow: h-shadow v-shadow blur spread color inset; */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  /* 决定谁在最上层 */
+  z-index: 15;
+  color: #3d4451;
+  height:50px;
+}
+.topNavBar-inner{
+  padding: 0 16px;
+  
+  
+
+
+
+}
+.topNavBar .topNavBar-inner>nav>ul{
+  list-style: none;
+  }
+.topNavBar .topNavBar-inner>nav>ul>li>a{
+  font-size: 12px;
+  /* text-decoration: none; */
+  color: inherit;
+  font-weight: bold;
+  border: transparent 3px solid;
+  padding-bottom:5px;
+  padding-top: 10px;
+  display: block;
+  margin-right: 15px;
+  margin-left: 15px;
+  position: relative;
+  
+}
+.topNavBar .topNavBar-inner>nav{
+  padding-top: 1px;
+ 
+}
+/* 伪类就是假的DIV */
+.topNavBar nav > ul>li.active>a::after{
+  content:'';
+  display: flex;
+  width:100%;
+  top:100%;
+  height: 2px;
+  left:0;
+  position: absolute;
+  animation: slide 0.5s ;
+  background: red;
+}
+/* .topNavBar .topNavBar-inner>nav>ul>li>a:hover{
+  border-bottom: tomato 3px solid;
+} */
+@keyframes slide{
+  0%{
+    width:0%;
+  }
+  100%{
+    width:100%;
+  } 
+
+}
+@keyframes submenuSlide{
+  0%{
+    margin-left: 10%;
+  }
+  100%{
+    margin-left: 30%;
+  } 
+}
+.topNavBar .topNavBar-inner .logo{
+  padding-top:14px;
+  padding-bottom: 23px;
+}
+.topNavBar .topNavBar-inner .logo .rs{
+  color:#E6686A;
+  font-family: "Arial Black";
+  font-size: 24px;
+  margin-right:  4px;
+ 
+}
+.topNavBar .topNavBar-inner .logo .card{
+  color: #9a9da2;
+  font-family: "Arial Black";
+  font-size: 24px;
+ 
+  }
+.topNavBar  .submenu{
+  display: none;
+  position: absolute;
+  top:100%;
+  background: white;
+  color:#3d4451;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  
+}
+/* 不是绝对定位，是文档流元素 */
+/* 绝对定位不受父元素影响 */
+.topNavBar li.active> .submenu{
+  display: block;
+  position: absolute;
+  top:100%;
+  padding-left:0px;
+  animation: submenuSlide 1s;
+}
+
+/* 不准换行 */
+.topNavBar  .submenu>li{
+  white-space: nowrap;
+  padding: 10px;
+} 
+.banner{
+  background-image: url(./rs-cover-2-2-1-1.jpg);
+  background-position: center, center;
+  height: 515px;
+  background-position: center center;
+  background-size:cover;
+  
+ 
+}
+.banner .mask{
+  height:515px;
+  background-color: rgba(0,0,0,0.8);
+  
+}
+.Usercard{
+  box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.75);
+  /* 加阴影会更加逼真 */
+  max-width: 930px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+}
+.welcome{
+  background-color: #E6686A;
+  font-size: 12px;
+  display: inline-block;
+  color:white;
+  padding:7px 20px 7px 20px;
+  line-height: 16px;
+  position: relative;
+  margin-bottom: 18px;
+  
+}
+.welcome .triangle{
+  display: block;
+  border: 5px solid red ;
+  width:0px;
+  border-left-color:#E6686A;
+  border-top-color:#E6686A;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  position:absolute;
+  top:100%;
+  left:10%;
+}
+ .Usercard .text{
+  background-position: center,center;
+  margin-left:90px;
+  margin-top:70px;
+  width:430px;
+}
+.Usercard .picture{
+  margin-top:70px;
+  margin-left:70px;
+}
+
+.Usercard dl dt{
+  font-weight: bold;
+  float: left;
+  width:30%;
+  padding:5px 0;
+  /* clearfix只能换一行 */
+}
+.Usercard dl dd{
+  float: left;
+  width:70%;
+  padding:5px 0;
+
+  /* 利用自动换行的特性 */
+  
+}
+.Usercard .text h1{
+  margin-bottom: 2px;
+}
+.Usercard .text hr{
+  margin-top: 29px;
+  margin-bottom: 24px;
+  height: 0;
+    border: none;
+    border-top: 1px solid #DEDEDE;}
+    /* 把边框其他的边去掉，只保留最上面那一条 */
+.media{
+      background: #E6686A;
+      text-align: center;
+      margin-top:50px;
+      
+    }
+.media svg{
+  width:30px;
+  height:30px;
+  fill:white;
+  margin:10px;
+  vertical-align: top;
+  /* 保证上下空间一致 */
+}
+
+
+.media >a:hover{
+  border:solid transparent 1px;
+  display:inline-block;
+  border-radius:50%;
+  background: #CF5D5F;
+  }
+.media >a{
+  border:solid transparent 1px;
+  display:inline-block;
+  /* 防止抖动 */
+}
+.media p{
+  font-size:15px;
+}
+.main{
+  box-shadow: 0px 2px 19px 1px rgba(0,0,0,0.75);
+}
+
+.button{
+   border :solid #CBCDCF;
+  /* 内联元素的左右PADDING有用，上下没有用 ,撑不起来*/
+  padding:21px 60px;
+  display: inline-block;
+  line-height: 20px;
+  text-align: center;
+  /* 如果不是BLOCK元素，写MARGIN:0 AUTO 是没办法居中的，因为左右未知 */
+  /* /* 内联元素要居中，必须得在父亲元素里面加TEXT-ALIGN,上面的DIV的宽度对我没影响。每个DIV是自己的DIV */
+  background: #EFEFEF;
+  transition:box-shadow 0.5s;
+  /* 阴影过渡为1秒 */
+}
+.button:hover{
+  box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.75);
+}
+.button-wrapper{
+  margin-top:40px;
+}
+.self-intro{
+  max-width: 600px;
+  /* 如果不进行设置，将是整个屏幕那么宽 */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-family:kai;
+  line-height: 2.0;
+  text-align: center;
+}
+.skills{
+  max-width: 930px;
+ /* margin-bottom: 20px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:60px;
+
+}
+.skills h3{
+  padding-right: 30px;
+}
+.skills>h2{
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 30px;
+
+}
+.skills>ol {
+  background: white;
+  box-shadow: 0px 6px 10px -1px rgba(0,0,0,0.75);
+  padding: 50px 60px 20px;
+  
+
+}
+.skills > ol > li{
+  float: left;
+  width: 48%;
+  /* BOX-SIZEING是包含了内边距和边框的 */
+  box-sizing: border-box;
+  
+}
+/* 选中第N个儿子，EVEN是数个 */
+/* 让偶数的右浮. 表示一种状态的，有时候存在有时候不存在，就是伪类。
+/* 两个冒号的就是伪元素 */
+.skills > ol > li:nth-child(even){
+  float: right;
+}
+
+
+.skills .progressBar{
+  background: #fae1e1 ;
+  height:3px;
+  border-radius: 11%;
+  margin: 2px 0 40px ;
+  
+
+}
+.skills .progress{
+width:30%;
+border-radius: 11%;
+background: #e8676b;
+height:3px;
+}
+section.message>h2,
+.portfolio>h2{
+  text-align: center;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin:30px 0 10px;
+}
+.portfolio nav li{
+float: left;
+/* 不可以加下面这句话 */
+/* 否则左右会有边距 */
+/* width:50px; */
+margin-left: 20px;
+/* 鼠标在上面是小手 */
+cursor: pointer;
+margin-top: 10px;
+
+}
+/* 让第一个元素的左外边距为0 */
+.portfolio nav li:nth-child(1){
+  margin-left: 0;
+}
+/* 如果想要MARGIN:AUTO来居中，必须设置一个宽度width */
+.portfolio > nav{
+  text-align: center; 
+  display: inline-block;
+  vertical-align: top; 
+}
+.portfolio ol{
+  
+  display: inline-block;
+  vertical-align: top;
+}
+ 
+  /* 写display：inline-block 是为了让他的宽度自动收缩，但是会出BUG */
+  /* 写了DISPLAY:INLINE-BLOCK之后，要加一个垂直，否则会多出来一节 */
+  /* display: inline-block;
+  vertical-align: top; */
+
+
+/* 默认和NAV一个宽度，所以要让NAV也变成inline-block ,让他收缩，让他的宽度由OL决定，OL宽度由字决定 */
+#postMessageForm,
+  
+
+.portfolio{
+  text-align: center;
+  max-width: 940px;
+  margin:60px auto; 
+  
+ 
+}
+.portfolio h2{
+  margin-bottom: 30px;
+}
+.portfolio .bar{
+  
+  background:white;
+  height: 5px;
+  margin-top: 1px;
+  border-radius: 12px;
+}
+.bar-inner{
+  height:100%;
+  background:#e8676b;
+  border-radius: 12px;
+  /* 增加过渡的动画效果 */
+  transition: all 0.3s
+}
+.bar.state-1 .bar-inner{
+  margin-left: 0;
+  width: 20%;
+}
+.bar.state-2 .bar-inner{
+  margin-left: 45px;
+  width: 25%;
+}
+.bar.state-3 .bar-inner{
+  margin-left: 98px;
+  width: 50%;
+}
+
+.works{
+  position: relative;
+
+  margin-top: 10px;
+}
+.works .big {
+  position: absolute;
+}
+.works .small1{
+  position: absolute;
+}
+.works .small2{
+  position: absolute;
+}
+
+section.message > ol{
+  max-width: 700px;
+  margin: 0 auto;
+  border-top: 1px solid #DDD;
+}
+section.message > ol > li {
+  padding: 16px;
+  border-bottom: 1px solid #DDD;
+}
+/* .swiper-button-prev{
+  position: relative;
+  left:auto;
+ 
+  bottom:250px;
+
+}
+.swiper-button-next{
+  position: relative;
+  left:100%;
+  right:auto;
+  bottom: 250px;
+} */
+section.portfolio .swiper-button-prev, 
+section.portfolio .swiper-button-next{
+  background-color: white;
+  width: 64px;
+  height: 64px;
+  right: 100%;
+  left: auto;
+  border-radius: 50%;
+  }
+section.portfolio .swiper-button-next{ left: 100%;right: auto; }
+
+
+ 
+
+>>>>>>> 69b4b7e3c95cb293689bccb83eb0f25b4ebf9530:resume/a.css
