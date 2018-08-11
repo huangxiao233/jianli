@@ -36,7 +36,7 @@
       let aTags = this.view.querySelectorAll('nav.menu > ul > li > a')
       for(let i=0; i<aTags.length; i++){
         aTags[i].onclick = (x)=>{
-          x.preventDefault()
+          // x.preventDefault()
           let a = x.currentTarget
           let href = a.getAttribute('href') //'#siteAbout'
           let element = document.querySelector(href)

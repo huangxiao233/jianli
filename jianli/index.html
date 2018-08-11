@@ -32,11 +32,11 @@
             </ul>
           </li>
           <li>
-            <a href="#">博客</a>
+            <a href="https://zhuanlan.zhihu.com/c_170105958">博客</a>
             <ul class="submenu">
-              <li>博客1</li>
-              <li>博客2</li>
-              <li>博客3</li>
+              <li><a href="https://zhuanlan.zhihu.com/p/35754758">博客1</a></li>
+              <li><a href="https://zhuanlan.zhihu.com/p/41766160">博客2</a></li>
+              <li><a href="https://zhuanlan.zhihu.com/p/41505955">博客3</a></li>
             </ul>
           </li>
           <!-- <li>
@@ -46,7 +46,7 @@
             <a href="#">联系方式</a>
           </li> -->
           <li>
-            <a href="#">其他</a>
+            <a href="#message">留言板</a>
           </li>
         </ul>
       </nav>
@@ -59,24 +59,25 @@
     <div data-x id="siteAbout" class="userCard">
       <div class="pictureAndText clearfix">
         <div class="picture">
-          <img src="./img/selfie.jpg" width=299 height=347 alt="头像">
+          <img src="./img/selfie.jpg"  alt="头像">
         </div>
         <div class="text">
-          <span class="welcome">Hello
+          <span class="welcome">
+             Hello
             <span class="triangle"></span>
           </span>
           <h1>黄笑</h1>
           <p>前端开发工程师</p>
           <hr>
           <dl>
-            <dt>年龄</dt>
-            <dd>22</dd>
-            <dt>所在城市</dt>
-            <dd>北京</dd>
-            <dt>邮箱</dt>
-            <dd>1694623679@qq.com</dd>
-            <dt>手机</dt>
-            <dd>18811395195</dd>
+              <dt>年龄</dt>
+              <dd>22</dd>
+              <dt>所在城市</dt>
+              <dd>北京</dd>
+              <dt>邮箱</dt>
+              <dd>1694623679@qq.com</dd>
+              <dt>手机</dt>
+              <dd>18811395195</dd>
           </dl>
         </div>
       </div>
@@ -172,10 +173,13 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <img src="./img/works/nav-page.jpg" class="swiper-slide">
-          <img src="./img/works/canvas.jpg" class="swiper-slide">
-          <img src="./img/works/apple-style-slides.jpg" class="swiper-slide">
+          <a href="http://www.baidu.com"><img src="./img/works/nav.jpg" alt ="导航工具" class="swiper-slide"></a>
+          <img src="./img/works/canvas.jpg" alt ="自制画板"  class="swiper-slide">
+          <img src="./img/works/apple-style-slides.jpg" alt="轮播" class="swiper-slide">
+          <img src="./img/works/auto-resume.jpg" alt ="自动简历" class="swiper-slide">
+          <img src="./img/works/todolist.jpg" alt ="简历模板" class="swiper-slide">
         </div>
+      
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
 
@@ -186,7 +190,7 @@
     </div>
 
   </section>
-  <section class="message">
+  <section data-x class="message" id="message">
     <h2>留言</h2>
     <ol id="messageList">
     </ol>
